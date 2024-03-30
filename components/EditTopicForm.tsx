@@ -4,18 +4,18 @@ import { Key, useState } from "react";
 import { useRouter } from "next/navigation";
 
 interface IProps {
-    id:Key | null | undefined;
-    title:string;
-    description:string;
+  id: Key | null | undefined;
+  title: string;
+  description: string;
 }
 
-export default function EditTopicForm({ id, title, description }:IProps) {
+export default function EditTopicForm({ id, title, description }: IProps) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
 
   const router = useRouter();
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
     try {
@@ -31,12 +31,9 @@ export default function EditTopicForm({ id, title, description }:IProps) {
         throw new Error("Failed to update topic");
       }
 
-      
       router.push("/");
 
       router.refresh();
-
-
     } catch (error) {
       console.log(error);
     }

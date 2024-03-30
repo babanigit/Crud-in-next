@@ -1,6 +1,5 @@
 import connectMongoDb from "@/libs/moongodb";
 import Topic from "@/models/TopicModel";
-import { connect } from "http2";
 import { NextRequest, NextResponse } from "next/server";
 
 // post topics

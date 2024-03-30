@@ -1,13 +1,11 @@
-
-
 import mongoose from "mongoose";
 
-const connectMongoDb= async() =>{
+const connectMongoDb = async () => {
 
-    try{
+    try {
         mongoose.connect(process.env.MONGO_STRING!);
         console.log("connected to mongoDb");
-    }catch(error){
+    } catch (error) {
         console.log(error)
     }
 };

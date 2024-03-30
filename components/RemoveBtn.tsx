@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import { HiOutlineTrash } from "react-icons/hi";
@@ -7,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { Key } from "react";
 
 interface IProps {
-    id:Key | null | undefined;
+  id: Key | null | undefined;
 }
 
-export default function RemoveBtn({ id }:IProps) {
+export default function RemoveBtn({ id }: IProps) {
   const router = useRouter();
   const removeTopic = async () => {
     const confirmed = confirm("Are you sure?");
