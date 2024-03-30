@@ -1,13 +1,40 @@
 import EditTopicForm from "@/components/EditTopicForm";
 
 
-export default function EditTopic() {
-    
-    
+
+const getTopicById = async (id: any) => {
+
+    try {
+      const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
+        cache: "no-store",
+      });
+  
+      if (!res.ok) {
+        throw new Error("Failed to fetch topic");
+      }
+  
+      return res.json();
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  interface IProps {
+    params:{id:string};
+  }
+
+export default async function EditTopic({ params }: IProps) {
+
+    const { id } = params;
+    const { topic } = await getTopicById(id);
+    const { title, description } = topic;
+
+
 
     return (
         <>
-        <EditTopicForm id={34} title={"hello"} description={"hello"} />
+        <EditTopicForm id={id} title={title} description={description} />
         
         </>
     )

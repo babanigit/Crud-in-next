@@ -31,8 +31,12 @@ export default function EditTopicForm({ id, title, description }:IProps) {
         throw new Error("Failed to update topic");
       }
 
-      router.refresh();
+      
       router.push("/");
+
+      router.refresh();
+
+
     } catch (error) {
       console.log(error);
     }
